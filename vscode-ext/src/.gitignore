@@ -1,0 +1,15 @@
+# Ignore build and dependency folders
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+*.pyc
+
+# Ignore environment and secrets
+backend/venv/
+.vsce/
+*.zip
+
+# Ignore system files
+.DS_Store
