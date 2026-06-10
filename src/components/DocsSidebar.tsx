@@ -1,17 +1,25 @@
 import Link from 'next/link';
 import { ENDPOINTS } from '../lib/endpoints';
 
+const METHOD_COLOR: Record<string, string> = { GET: 'var(--green)', POST: 'var(--accent2)', PUT: 'var(--amber)', DELETE: 'var(--red)' };
+
 export default function DocsSidebar({ activeSlug }: { activeSlug?: string }) {
   return (
-    <aside className="p-4 border-r border-gray-200 w-full sm:w-64">
-      <h2 className="font-semibold mb-2">Endpoints</h2>
-      <ul>
+    <aside style={{ width: 220, flexShrink: 0 }}>
+      <div style={{ color: 'var(--text3)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10, padding: '0 4px' }}>
+        Endpoints
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         {ENDPOINTS.map(ep => (
-          <li key={ep.slug} className={`mb-1 ${activeSlug === ep.slug ? 'font-bold text-indigo-600' : ''}`}>
-            <Link href={`/endpoint/${ep.slug}`}>{ep.name}</Link>
-          </li>
+          <Link key={ep.slug} href={`/endpoint/${ep.slug}`}
+            className={`sidebar-link${activeSlug === ep.slug ? ' active' : ''}`}>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, fontWeight: 700, color: METHOD_COLOR[ep.method] || 'var(--text2)', minWidth: 34 }}>
+              {ep.method}
+            </span>
+            <span>{ep.name}</span>
+          </Link>
         ))}
-      </ul>
+      </div>
     </aside>
   );
 }

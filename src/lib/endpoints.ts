@@ -59,6 +59,6 @@ export const ENDPOINTS: EndpointDefinition[] = [
         description: 'Maximum number of steps for the agent.'
       }
     ],
-    example: { task: 'Translate text', max_steps: 3 }
+    example: { task: 'Analyze network protocol behavior to optimize predictive dynamic sharding', max_steps: 3 }
   }
 ];
