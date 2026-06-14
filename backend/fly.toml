@@ -5,7 +5,7 @@ primary_region = 'ord'
 [build]
 
 [processes]
-  app = "uvicorn app.main:app --host 0.0.0.0 --port 8080"
+  app = ".venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8080"
 
 [http_service]
   internal_port = 8080
