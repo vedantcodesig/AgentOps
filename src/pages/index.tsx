@@ -86,9 +86,9 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div className="glow-dot" />
             <span style={{ color: 'var(--text2)', fontSize: 13 }}>Backend running at</span>
-            <span className="mono" style={{ color: 'var(--green)', fontSize: 12 }}>localhost:8000</span>
+            <span className="mono" style={{ color: 'var(--green)', fontSize: 12 }}>{process.env.NEXT_PUBLIC_API_BASE_URL || "https://agentops-ulx1gg.fly.dev"}</span>
           </div>
-          <a href="http://localhost:8000/docs" target="_blank" rel="noreferrer"
+          <a href={} target="_blank" rel="noreferrer"
             style={{ color: 'var(--text3)', fontSize: 12, textDecoration: 'none' }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--text3)')}>

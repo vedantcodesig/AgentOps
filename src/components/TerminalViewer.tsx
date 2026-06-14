@@ -35,7 +35,7 @@ export default function TerminalViewer() {
 
     term.writeln('\x1b[35m[AgentOps Sandbox Terminal Connected]\x1b[0m');
 
-    const ws = new WebSocket('ws://localhost:8000/ws/terminal');
+    const ws = new WebSocket(`${(process.env.NEXT_PUBLIC_API_BASE_URL || 'https://agentops-ulx1gg.fly.dev').replace('https://', 'wss://')}/ws/terminal`);
     ws.onmessage = (e) => term.write(e.data.replace(/\n/g, '\r\n'));
     ws.onerror = () => term.writeln('\x1b[31m\r\n[WebSocket Error]\x1b[0m');
 
